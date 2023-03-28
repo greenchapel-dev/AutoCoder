@@ -5,7 +5,7 @@ An open source in car head unit
 To start the app run
 
 ~~~ 
-go run main.go
+go run autocoder-api/main.go
 ~~~
 
 To start the OBD connection send a POST request to
