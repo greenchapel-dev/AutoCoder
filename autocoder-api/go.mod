@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/gorilla/mux v1.8.0
-	github.com/rzetterberg/elmobd v0.0.0-20220615094505-d93b34604253
+	github.com/greenchapel-dev/elmobd v0.0.0-20230328063457-dcececf7697b
 )
 
 require (

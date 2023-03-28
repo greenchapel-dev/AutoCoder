@@ -1,7 +1,7 @@
 github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
 github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=
-github.com/rzetterberg/elmobd v0.0.0-20220615094505-d93b34604253 h1:xsrXnsn22rVeFeskM+YLFaPQEKsMW/bgrNCiFnfWH7M=
-github.com/rzetterberg/elmobd v0.0.0-20220615094505-d93b34604253/go.mod h1:pjUsxTi7MfZhog8b0rwIxtddeBI35SxEi8mNOQgzSO8=
+github.com/greenchapel-dev/elmobd v0.0.0-20230328063457-dcececf7697b h1:8lCfdPENP4t1Qv5G+t6TmwcBj2eVqYwDLx8vepNiGcI=
+github.com/greenchapel-dev/elmobd v0.0.0-20230328063457-dcececf7697b/go.mod h1:wDYc9dS0ygPlCjUyggPsIyG7sPp1lo0u36ps45IoCbA=
 github.com/tarm/serial v0.0.0-20180830185346-98f6abe2eb07 h1:UyzmZLoiDWMRywV4DUYb9Fbt8uiOSooupjTq10vpvnU=
 github.com/tarm/serial v0.0.0-20180830185346-98f6abe2eb07/go.mod h1:kDXzergiv9cbyO7IOYJZWg1U88JhDg3PB6klq9Hg2pA=
 golang.org/x/sys v0.6.0 h1:MVltZSvRTcU2ljQOhs94SXPftV6DCNnZViHeQps87pQ=

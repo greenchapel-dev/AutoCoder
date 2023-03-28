@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/rzetterberg/elmobd"
+	"github.com/greenchapel-dev/elmobd" // modified from https://github.com/rzetterberg/elmobd
 )
 
 // Struct for holding all the data from the car and for returning as json
@@ -23,15 +23,18 @@ var rpm *elmobd.EngineRPM
 var carData CarData
 
 // Create the API layer
-func createAPI() {
+func createObdAPI() {
 	r := mux.NewRouter()
-	r.HandleFunc("/get-rpm", GetRpmResp).Methods("GET")
-	r.HandleFunc("/get-coolant-temp", GetCoolantTempResp).Methods("GET")
-
 	// all data from the car
 	r.HandleFunc("/all-data", GetCarData).Methods("GET")
-
 	http.ListenAndServe(":8080", r)
+}
+
+// Get all the data from the car
+func GetCarData(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(carData)
 }
 
 // Check the car has these commands
@@ -93,15 +96,6 @@ func GetRPM() string {
 	return rpmVal
 }
 
-// Get the rpm API Response
-func GetRpmResp(w http.ResponseWriter, r *http.Request) {
-	rpmVal := GetRPM()
-	// create response
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(rpmVal))
-}
-
 // Get Engine coolent temp
 func GetCoolantTemp() string {
 	coolantTemp := elmobd.NewCoolantTemperature()
@@ -115,24 +109,9 @@ func GetCoolantTemp() string {
 	return coolantTempVal
 }
 
-// Get Coolant temp API Response
-func GetCoolantTempResp(w http.ResponseWriter, r *http.Request) {
-	coolentTempVal := GetCoolantTemp()
-	// create response
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(coolentTempVal))
-}
-
-// Get all the data from the car
-func GetCarData(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusOK)
-	json.NewEncoder(w).Encode(carData)
-}
-
 // MAIN
 func main() {
+	// command line flags
 	addr := flag.String(
 		"addr",
 		// "test:///dev/ttyUSB0",
@@ -144,7 +123,6 @@ func main() {
 		true,
 		"Enable debug outputs",
 	)
-
 	flag.Parse()
 
 	// Create a new device
@@ -153,7 +131,6 @@ func main() {
 		fmt.Println("error", err)
 		return
 	}
-
 	obdDevice = dev
 
 	// Create the API
@@ -161,5 +138,6 @@ func main() {
 	go getFastData()
 	go getSlowData()
 
-	createAPI()
+	// start the API layer
+	createObdAPI()
 }
