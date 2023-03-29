@@ -1,0 +1,20 @@
+.main{
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  max-width: 250px;
+}
+
+.credentials {
+  max-width: 100%;
+  button{
+    width: 100%;
+  }
+}
+
+.settings {
+  width:  100%;
+  button{
+    width: 100%;
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "name": "AutoCoderApp",
+  "productName": "AutoCoder",
+  "description": "Ui for AutoCoder, a head unit display application for your car",
+  "version": "0.1.0",
+  "main": "main.js",
+  "author": "Mr. Green <greenchapeljohn@gmail.com>",
+  "copyright": "© 2022, GreenChapel Dev.",
+  "homepage": "http://greenchapel.dev",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "electron": "electron .",
+    "electron-build": "ng build --prod && npm run electron .",
+    "electron-build-installer": "electron-builder"
+  },
+  "build": {
+    "appId": "AutoCoder",
+    "files": [
+      "**/*",
+      "dist/**/*"
+    ],
+    "directories": {
+      "buildResources": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "src/favicon.ico"
+    },
+    "nsis": {
+      "installerIcon": "src/favicon.ico",
+      "uninstallerIcon": "src/favicon.ico",
+      "uninstallDisplayName": "AutoCoder",
+      "license": "license.txt",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "~12.2.0",
+    "@angular/cdk": "^12.2.8",
+    "@angular/common": "~12.2.0",
+    "@angular/compiler": "~12.2.0",
+    "@angular/core": "~12.2.0",
+    "@angular/forms": "~12.2.0",
+    "@angular/material": "^12.2.8",
+    "@angular/platform-browser": "~12.2.0",
+    "@angular/platform-browser-dynamic": "~12.2.0",
+    "@angular/router": "~12.2.0",
+    "@aws-sdk/client-cloudformation": "^3.85.0",
+    "@aws-sdk/client-cloudwatch": "^3.118.1",
+    "@aws-sdk/client-cloudwatch-logs": "^3.118.1",
+    "@aws-sdk/client-codecommit": "^3.34.0",
+    "@ionic/storage-angular": "^3.0.6",
+    "angular-diff-match-patch": "github:amweiss/angular-diff-match-patch",
+    "aws-regions": "^2.3.1",
+    "chart.js": "^4.2.1",
+    "dynamic-mat-table": "^1.4.16",
+    "lodash": "^4.17.21",
+    "ngx-text-diff": "^0.6.0",
+    "rxjs": "~6.6.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "electron-builder": "^22.14.13",
+    "@angular-devkit/build-angular": "~12.2.7",
+    "@angular/cli": "~12.2.7",
+    "@angular/compiler-cli": "~12.2.0",
+    "@types/diff-match-patch": "^1.0.32",
+    "@types/jasmine": "~3.8.0",
+    "@types/lodash": "^4.14.180",
+    "@types/node": "^12.11.1",
+    "electron": "^15.0.0",
+    "electron-packager": "^15.4.0",
+    "jasmine-core": "~3.8.0",
+    "karma": "~6.3.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.0.3",
+    "karma-jasmine": "~4.0.0",
+    "karma-jasmine-html-reporter": "~1.7.0",
+    "typescript": "~4.3.5"
+  }
+}

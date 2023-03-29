@@ -1,0 +1,59 @@
+<mat-drawer-container class="main" autosize>
+  <mat-drawer mode="side" opened disableClose>
+    <div class="sideTopSection">
+      <button mat-icon-button (click)="toggleSideNav()" class="sideButton">
+          <mat-icon *ngIf="!sidenavOpened">
+              menu
+          </mat-icon>
+          <mat-icon *ngIf="sidenavOpened">
+              close
+          </mat-icon>
+      </button>
+    </div>
+
+
+    <div class="menuItems" *ngFor="let menu of menus" >
+      <div class="btn">
+        <button mat-icon-button *ngIf="!sidenavOpened; else largeButton" [routerLink]="menu.path">
+          <mat-icon *ngIf="!menu.svgIcon; else svg">
+              {{menu.menuIcon}}
+          </mat-icon>
+          <ng-template #svg>
+            <mat-icon [svgIcon]="menu.menuIcon"></mat-icon>
+          </ng-template>
+        </button>
+
+        <ng-template #largeButton>
+          <button mat-icon-button [routerLink]="menu.path" class="expandedBtn">
+            <mat-icon *ngIf="!menu.svgIcon; else svg">
+                {{menu.menuIcon}}
+            </mat-icon>
+            <ng-template #svg>
+              <mat-icon [svgIcon]="menu.menuIcon"></mat-icon>
+            </ng-template>
+             {{menu.name}}
+          </button>
+        </ng-template>
+      </div>
+    </div>
+
+
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="settingsBtn">
+      <button mat-button (click)="OnGotoSettings()">
+        Settings
+      </button>
+    </div>
+    <div class="logoCont">
+      <img src="assets/AutoCoderLogo.png" height="20px">
+    </div>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+
