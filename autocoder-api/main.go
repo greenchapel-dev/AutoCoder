@@ -114,7 +114,7 @@ func checkSupportedObdCommands() {
 // Thread for getting the fast data from the car on a regular interval
 func getFastData() {
 	// create a ticker for every 100ms
-	ticker := time.NewTicker(100 * time.Millisecond)
+	ticker := time.NewTicker(500 * time.Millisecond)
 	// run forever
 	for {
 		select {
@@ -128,7 +128,7 @@ func getFastData() {
 // Thread for getting the slow data from the car on a regular interval
 func getSlowData() {
 	// create a ticker for every 1000ms
-	ticker := time.NewTicker(1000 * time.Millisecond)
+	ticker := time.NewTicker(2000 * time.Millisecond)
 	// run forever
 	for {
 		select {
